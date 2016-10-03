@@ -1,0 +1,208 @@
+@font-face {
+    font-family: 'Klavika-Regular';
+    src: url('../fonts/Klavika-Regular.otf');
+}
+
+body {
+    background: url('../images/bg.jpg');
+    /*color: #000;*/
+}
+.emc-nav-bar{
+    background-image: url('../images/bg.jpg');
+}
+
+/*.navbar-default {*/
+    /*background-color: transparent;*/
+    /*border-color: transparent;*/
+/*}*/
+.emc-nav-bar-title{
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.emc-header-container{
+    max-width:100%;
+    width:100%;
+}
+
+
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}
+
+canvas {
+    background-color: #f3f3f3;
+    -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    box-shadow: 3px 3px 3px 0 #e3e3e3;
+    border: 1px solid #c3c3c3;
+    height: 80px;
+    margin: 6px 0 0 6px;
+}
+
+.t-down{
+    margin-top:20px;
+}
+
+.app-modal-window .modal-dialog {
+    width: 90%;
+    height: 90%;
+    overflow-y: auto;
+}
+
+.point {
+    cursor: pointer;
+}
+
+
+#wrapper {
+    position: relative;
+    width: 99%;
+    margin: 0 auto;
+    background: #f5f5f5;
+    color: black;
+    /*box-shadow: 0 0 6px #021a4c;*/
+
+}
+
+.my-drop-zone { border: dotted 3px lightgray; }
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+canvas {
+    background-color: #f3f3f3;
+    -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+    box-shadow: 3px 3px 3px 0 #e3e3e3;
+    border: 1px solid #c3c3c3;
+    height: 100px;
+    margin: 6px 0 0 6px;
+}
+
+.datetime-picker div > table .btn-default {
+    border: 0;
+}
+
+
+.input-help {
+    display: none;
+    position:absolute;
+    z-index: 100;
+    top: -6px;
+    left: 300px;
+    width:200px;
+    padding:10px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #aaa;
+    border:1px solid #ec3f41;
+    opacity: 0.9;
+}
+.input-help::before {
+    content: "\25C0";
+    position: absolute;
+    top:10px;
+    left:-13px;
+    font-size:16px;
+    line-height:16px;
+    color:#ec3f41;
+    text-shadow:none;
+}
+.input-help h4 {
+    margin:0;
+    padding:0;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+/* Always hide the input help when it's pristine */
+input.ng-pristine + .input-help {
+    display: none;
+}
+
+/* Show red border when stuff has been typed in, but its invalid */
+.ng-dirty.ng-invalid {
+    border-color:#ec3f41;
+}
+
+/* Show a blue border while an input has focus, make sure it overrides everything else */
+/* Overriding Twitter Bootstrap cuz I don't agree we need to alarm the user while they're typing */
+input:focus {
+    /*color: black !important;*/
+    /*border-color: rgba(82, 168, 236, 0.8) !important;*/
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;*/
+    /*-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;*/
+    /*box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;*/
+}
+
+/*When in focus and the field is valid, we don't want to see the help*/
+.immediate-help.ng-valid:focus + .input-help {
+    display: none;
+}
+
+/*Don't display errors when we don't have the focus even if the field is not valid */
+.immediate-help.ng-invalid + .input-help {
+    display: none;
+}
+
+/* We are in focus and the field is bad, we display */
+.immediate-help.ng-invalid:focus + .input-help {
+    display: block;
+}
+
+/* Immediate help should be red when pristine */
+.immediate-help.ng-pristine:focus + .input-help {
+    border-color:#ec3f41;
+}
+.immediate-help.ng-pristine:focus + .input-help::before {
+    color:#ec3f41;
+}
+
+/* Help should not be visible when input is valid */
+.ng-valid + .input-help {
+    /*border-color:#3a7d34;*/
+    border-color:black;
+    display: none;
+}
+
+.ng-valid + .input-help::before {
+    /*color:#3a7d34;*/
+    color: blue;
+}
+
+/* Style input help requirement bullets */
+.input-help ul {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+
+/* Default each bullet to be invalid with a red cross and text */
+.input-help li {
+    padding-left: 22px;
+    line-height: 24px;
+    color:#ec3f41;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA1CAYAAABIkmvkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAJwAAACcBKgmRTwAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMC8wOS8xMlhq+BkAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAEA0lEQVRIie2WW2jbVRzHv//zT5rkn0ub61zaNdEiPqTC9EFRhtgJk63qg3Wr0806pswNiYgDUXxwyryCEB8UBevtaSCCDHQoboKyoVvVzfRmL2napU0mrdbl8s//dy4+dM1M28n64FsPnIdz+XzO75zfOXA0pRRWU7o/uS9FxOc+3/vlIQBgq4F3fHxvKuIPJ9cFwi9uTXU8BwDa1Uaw/aN7UusCkWRbPI5yxcTI2Bgy49kXrkrwwIedqYg/nGyLXwsJiYHBYWTGs7Cq5Kpt4cA3PXft+2rX40vhrt7OVLgplIzHYuBKoH9gCKMjGVE1LdfJl86YDAAOfN2ziZP4NODyv9/z2fanFuH7P9iWCjcFk/FYK4QSGLgEk0WeUy/3mQCgPXFs9xbBRW883NrssDvQN3hWcOLPEPGWiD94MBaPQymBoaERjI9mBSfu+fHwL+biItpjR3e6JFfloDeAaGQ9SpUycvlp6ExHJBKGYsDvgyMYH81KTsL90yuX4VoWdh3pMqSQpWBjAC3RZkgpYEkCFDA8NIqJ0UlFxI3Tr/5aB9elsau305BcloKBAFpjLeBSYGRwDBNjk4oTN06/dnYZXCcAgK1vbzYkl6VwOATihOzYlOLEjTOvn1sRXiYAgDsP32YIKUuWaXFOwtP3xrnqleAVBQBwy/M3GZy4+PnN3/4TvqJgNWVVj2lNsCZYE6wJ1gRrgv9dYAMAHHw2Bl2fUEpBVavtLPVW/78nVR/Zk4CupzVHA6zChSOK0yHv0S8GFyK4BMPhAJxOgLE03/9kYhE2dz+agKaldY8bDaEQ7D5ft7Roy+UIlCooy5LQdaZ5vVBEgGmmrT172yVxaIylmdcDm9cHc2oK1Zm8kETvLAo0pRRk8mmnEqKouVw68zVCzP8F/uccFHHoXi/sjT6Y53Mw83mhOHn8J7416wQAwPftd0ouiswwdJu/CRASkBKQAmYuBzNfWIC/O173W6llwfbeu6Yi8tDsrAQJYGICyGQAIWDO5KUkaxlcJwAASdSmaWAQHCACOAc4h6YzJi1qWymNNUHlwYcT0JDWXQbACYhGgeh6gHM4Ghuh2/R0YePNiaUCTSmFcvdDCY1paZvhht3nQ2VmGmahICSR5vQHmDt6DcozeZSnp2FdLLZHhwdq94SVd+xMaJqWtrkM2L1uVHILpy0t8igidymXExfHMzBCQbhCIdga7Onz8etqkdgkUYTZbYCSqORmULlQEIq4J3jyexMA8jdu9BRzuaKyLN3udkNjDEqICID+2hbm797Wwez24/T3vJTE3aFTP9Sd9vT1NziVEMUGr1c35+Y2b5jKnqgNKqWglMLspjs6/rj1dudie2mdao07J5s3dCzt/werJTyI1yYqpQAAAABJRU5ErkJggg==) no-repeat  2px -34px;
+}
+
+/* Set to green check and text when valid */
+.input-help li.valid {
+    color:#3a7d34;
+    background-position: 2px 6px;
+}
+
+.controls {
+    position: relative;
+}
+
+.input-help-cehrt {
+    left: 235px;
+}

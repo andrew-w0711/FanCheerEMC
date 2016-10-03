@@ -1,0 +1,38 @@
+<!--<div class="col-sm-6">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label>Image</label>-->
+                                    <!--<!--<input type="text" name="orgName"-->-->
+                                    <!--<!--class="form-control" ng-model="section.data.orgName"-->-->
+                                    <!--<!--required>-->-->
+                                    <!--<input type="file" nv-file-select="" uploader="uploader" single/><br/>-->
+
+                                    <!--<div ng-show="uploader.isHTML5"-->
+                                         <!--ng-thumb="{ file: uploader.queue[0]._file, height: 80 }"></div>-->
+                                    <!--<!--<p>Name:<strong>{{ uploader.queue[0].file.name }}</strong></p>-->-->
+                                    <!--<!--<p ng-show="uploader.isHTML5" nowrap>Size:{{ uploader.queue[0].file.size/1024/1024|number:2 }} MB</p>-->-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label>Repeat</label>-->
+                                    <!--<input type="number" name="repeat" min="0" max="100" ngMinlength="1"-->
+                                           <!--ngMaxlength="10"-->
+                                           <!--class="form-control" ng-model="promo.repeat"-->
+                                           <!--required>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label>Instance</label>-->
+                                    <!--<select class="form-control" ng-model="promo.instance"-->
+                                            <!--ng-options="instance.name for instance in instances" required>-->
+                                        <!--<option value="">-- choose instance --</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label>Text</label>-->
+                                    <!--<textarea type="text" class="form-control" name="text" rows="3"-->
+                                              <!--class="form-control" ng-model="promo.text"-->
+                                            <!--></textarea>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->

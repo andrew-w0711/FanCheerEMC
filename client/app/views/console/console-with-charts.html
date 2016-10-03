@@ -1,0 +1,272 @@
+<div class="container console">
+<!--<div ng-controller="DashboardCtrl">-->
+<!--<tabset>-->
+<!--<tab heading="Calendar"  active="promoTabs[0]">-->
+<div class="row" ng-controller="ConsoleCtrl" ng-init="init()">
+<div ng-show="isAuthenticated()">
+<div class="col-lg-6">
+    <div class="console-content">
+
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><h3 class="panel-title">Promotions Calendar</h3></div>
+            <div class="panel-body">
+                <div ng-show="!calendarLoading">
+                    <div ng-show="error == null">
+                        <div style="padding-left:10px; padding-right: 10px">
+                            <!--<div ui-calendar="uiConfig.calendar" class="calendar" ng-model="eventSources"></div>-->
+                            <div class="calendar" ng-model="eventSources" id="calendar" class="calendar"
+                                 calendar="calendar" config="uiConfig.calendar"
+                                 ui-calendar="uiConfig.calendar"></div>
+                        </div>
+                    </div>
+                    <div ng-show="calendarError != null">
+                        <div class="alert alert-danger" role="alert" ng-bind="calendarError"></div>
+                    </div>
+                </div>
+                <div ng-show="calendarLoading" style="text-align:center">
+                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="console-content">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Games Schedules</div>
+            <div class="panel-body">
+                <div ng-show="!gamesLoading">
+                    <div ng-show="gamesError === null">
+                        <div style="padding-left:10px; padding-right: 10px">
+                            <tabset>
+                                <tab ng-repeat="sport in sports" heading="{{sport.sportName}}" ng-show="gamesBySports[sport.sportId] && gamesBySports[sport.sportId].length > 0">
+                                         <table class="table table-striped table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>Game</th>
+                                                <th>Time</th>
+                                                <th>Channel</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="game in gamesBySports[sport.sportId]">
+                                                <td>{{game.homeTeam.shortName}} vs {{game.awayTeam.shortName}}</td>
+                                                <td>{{game.game.startTime}}</td>
+                                                <td>{{game.game.network}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                 </tab>
+
+                            </tabset>
+                        </div>
+                    </div>
+                    <div ng-show="gamesError !== null">
+                        <div class="alert alert-danger" role="alert" ng-bind="gamesError"></div>
+                    </div>
+                </div>
+                <div ng-show="gamesLoading" style="text-align:center">
+                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!--<div class="console-content">-->
+        <!--<div class="panel panel-primary">-->
+            <!--<div class="panel-heading">Charts</div>-->
+            <!--<div class="panel-body" ng-controller="ChartsCtrl" ng-init="init()">-->
+                <!--<tabset>-->
+                    <!--<tab heading="Demographics">-->
+                        <!--<div>-->
+                            <!--<!-- Default panel contents -->-->
+                            <!--<!--<div class="page-header">Demographics</div>-->-->
+                            <!--<div ng-show="!loading">-->
+                                <!--<div ng-show="error == null">-->
+
+                                    <!--<div class="row">-->
+
+                                        <!--<div class="col-lg-10">-->
+
+                                            <!--<nvd3 options="genderOptions" data="genderData"></nvd3>-->
+
+                                        <!--</div>-->
+
+                                        <!--<div class="col-lg-10">-->
+                                            <!--<nvd3 options="zipCodeOptions" data="zipCodeData"></nvd3>-->
+
+                                        <!--</div>-->
+                                        <!--<!--<nvd3 options="ageOptions" data="ageData"></nvd3>-->-->
+                                        <!--<!--<hr />-->-->
+                                    <!--</div>-->
+                                    <!--<div ng-show="error != null">-->
+                                        <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div ng-show="loading" style="text-align:center">-->
+                                    <!--<i class="fa fa-spinner fa-pulse fa-2x"></i>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</tab>-->
+
+                    <!--<tab heading="Engagement">-->
+                        <!--<div>-->
+                            <!--<div ng-show="!loading">-->
+                                <!--<div ng-show="error == null">-->
+
+                                    <!--<!--<canvas id="line" class="chart chart-line" data="data"-->-->
+                                    <!--<!--labels="labels" legend="true" series="series"-->-->
+                                    <!--<!--click="onClick">-->-->
+                                    <!--<!--</canvas>-->-->
+
+                                    <!--<div class="row">-->
+
+                                        <!--<div class="col-lg-6">-->
+
+                                            <!--<nvd3 options="options" data="data" config="config"></nvd3>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                                <!--<div ng-show="error != null">-->
+                                    <!--<div class="alert alert-danger" role="alert" ng-bind="error"></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div ng-show="loading" style="text-align:center">-->
+                                <!--<i class="fa fa-spinner fa-pulse fa-2x"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</tab>-->
+
+
+                <!--</tabset>-->
+
+
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+</div>
+
+<div class="col-lg-6">
+    <div class="console-content" ng-include="'views/console/promo.html'"></div>
+
+    <div class="console-content">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Game Assignments</div>
+            <div class="panel-body">
+
+                <form name="addAccountForm" class="form-horizontal" novalidate>
+
+
+                            <table st-table="tmpControllers" st-safe-src="controllers"
+                                   class="table table-striped table-bordered">
+                                <thead>
+                                <!--<tr>-->
+                                    <!--<th colspan="3"><input st-search="" placeholder="" class="form-control"-->
+                                                           <!--type="text"/></th>-->
+                                <!--</tr>-->
+                                <tr class="tbl-header">
+                                    <th>Controller</th>
+                                    <th>Sport Filter</th>
+                                    <th>Game Selection</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row in tmpControllers">
+                                    <td ng-bind="row.netvControllerName"></td>
+                                    <td>
+                                        <!--<label ng-repeat="sport in sports">-->
+                                        <!--<input type="radio" value="{{sport}}" ng-change="loadSelectedSportGames(row)"  ng-model="row.sport">-->
+                                        <!--{{sport}} &nbsp;-->
+                                        <!--</label>-->
+                                        <select name="sport" class="form-control"
+                                                ng-model="row.sportId"
+                                                ng-options="sport.sportId as sport.sportName for sport in sports">
+                                        </select>
+
+
+                                    </td>
+                                    <td>
+                                        <!--<span style="text-align:center">-->
+                                             <!--<i class="fa fa-spinner fa-pulse fa-2x"  ng-show="loadingSportGames && controllerId === row.id"></i>-->
+                                        <!--</span>-->
+                                        <select name="game" class="form-control"
+                                                ng-model="row.gameId"
+                                                ng-change="recordGameAssignment(row)"
+                                                ng-options="g.game.gameId as gameLabel(g) for g in gamesBySports[row.sportId]">
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="pull-right">
+                                <button class="btn btn-primary" ng-disabled="controllerAssignmentLoading" ng-click="saveControllerAssignments()"><span><i
+                                        class="fa fa-check fa-fw">&nbsp; </i>Save</span>
+                                </button>
+                                <!--<button class="btn btn-warning" ng-disabled="controllerAssignmentLoading" ng-click="resetControllerAssignments()"><span><i-->
+                                        <!--class="fa fa-times fa-fw">&nbsp; </i>Reset</span>-->
+                                <!--</button>-->
+                                <span ng-show="savingControllerAssignments" style="text-align:center;padding-top:20px; padding-bottom:20px">
+                                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                                </span>
+
+                                <span ng-show="controllerAssignmentError != null">
+                                    <div class="alert alert-danger" role="alert" ng-bind="controllerAssignmentError"></div>
+                                </span>
+
+                            </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+<script type="text/ng-template" id="ConfirmDeletePromoCtrl.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Delete Confirmation
+        </h3>
+    </div>
+    <div class="modal-body">
+        <p>Delete the promotion ? This operation is irreversible</p>
+    </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-disabled="loading" ng-click="cancel()"><span><i class="fa fa-times fa-fw">
+            &nbsp; </i>Cancel</span>
+        </button>
+        <button class="btn btn-danger" ng-disabled="loading" ng-click="delete()"><span><i class="fa fa-trash-o fa-fw">
+            &nbsp; </i>Delete</span>
+        </button>
+        <div ng-show="loading" style="text-align:center;padding-top:20px; padding-bottom:20px">
+            <i class="fa fa-spinner fa-pulse fa-2x"></i>
+        </div>
+    </div>
+</script>
+</div>
+</div>
+
+<div class="row">
+
+<div ng-show="!isAuthenticated()">
+    <div ng-show="!isAuthenticated()" style="font-size: 18px;text-align: center">
+        <p>Please <a href="" ng-click="loginReq()"><i class="fa fa-sign-in"></i>&nbsp;login</a> to access this page. You can also  <a href="#/registration"><i class="fa fa-chevron-circle-right"></i>&nbsp;register</a></p>
+    </div>
+</div>
+
+</div>
+
+</div>
+</div>
